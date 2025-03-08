@@ -32,12 +32,16 @@ function partOneB () {
   let bill, billNumber, tip;
 
   // 1. prompt for the bill
+  bill = prompt("What is your bill?");
   
   // 2. convert it to number
+  billNumber = Number(bill);
   
   // 3. calculate tip
+  tip = billNumber * .20;
 
   // 4. set the message
+  messageParagraph.innerHTML = `Your bill is ${bill}. Your tip is ${tip} at 20%.`
   
 }
 
@@ -61,12 +65,16 @@ function partTwoA () {
 function partTwoB () {
   alert("Try it!");
   // 1. prompt for the bill
+  bill = prompt("What is your bill?");
 
   // 2. convert it to number
+  billNumber = Number(bill);
 
   // 3. calculate split bill
+  split = billNumber/4;
 
   // 4. set the message
+  messageParagraph.innerHTML = `Your bill is ${bill}. You part of the bill is ${split} among four friends.`;
 }
 
 // Example
@@ -102,13 +110,17 @@ function partThreeB () {
   alert("Try it!");
   let bill, billNumber, tip, message;
   // 1. prompt the user for the bill
+  bill = prompt("What is your bill?");
   
   // 2. convert the bill to a number
+  billNumber = Number(bill);
   
   // 3. calculate the tip
+  tip = twentyPercentTip(billNumber);
   
   // 4. create the message
   // HINT: use tipMessage, which is defined above partThreeA
+  message = tipMessage(tip, bill, 20);
   
   // 5. set the message
   messageParagraph.innerHTML = message;
@@ -142,20 +154,26 @@ function partFourA () {
 function splitBillByFour(x) {
   // Try it! return x divided by 4
   // to calculate the bill.
+  return x/4;
+}
+function messageForSplitBill(bill, split, count) {
+  return `Your bill is ${bill}. You part of the bill is ${split} among ${count} friends.`
 }
 
 function partFourB () {
   alert("Try it!");
   let bill, billNumber, split, message;
   // 1. prompt for bill
+  bill = prompt("What is your bill?");
 
   // 2. convert bill to number 
+  billNumber = Number(bill);
 
   // 3. use a function to calculate the split
+  split = splitBillByFour(billNumber);
 
   // 4. use a function to create the message
-
-  messageParagraph.innerHTML = message;
+  message = messageForSplitBill(bill, split, "four");
 }
 
 

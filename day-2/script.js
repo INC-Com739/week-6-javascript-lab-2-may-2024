@@ -33,11 +33,15 @@ function partOneB () {
   guessNumber = Number(guess);
 
   // 1. check if the number is equal to the answer
+  if (guessNumber === answer) {
 
     // 2. if it is, set the message for correct.
+    messageParagraph.innerHTML = `You guessed the number! It was ${answer}.`;
+  } else {
 
     // 3. if not, set the message for wrong guess.
-
+mesageParagraph.innerHTML = `You did not guess the number. Try again.`;
+}
 }
 
 // Example
@@ -65,18 +69,21 @@ function partTwoA () {
 // Try it!
 function partTwoB () {
   let answer, guess, guessNumber;
-  answer = 7;
+  answer = 5;
   guess = prompt("Guess a number between 1 and 10.");
   guessNumber = Number(guess);
 
   // 1. check if the number is too low.
-
+if(guessNumber < answer) {
     // 2. if it is, set the message for too low.
-
+messageParagraph.innerHTML = `Your guess is too low. Try again.`;
+} else if (guessNumber > answer) {
     // 3. if not, set the message for too high.
-
+messageParagraph.innerHTML = `Your guess is too high. Try again.`;
+}else {
     // 4. if not, set the message for correct.
-
+messageParagraph.innerHTML = `You guessed the number! It was ${answer}.`;
+}
 }
 
 // Example
@@ -105,14 +112,16 @@ function partThreeB () {
   let color;
   color = prompt("What color describes your mood today?");
   // 1. check for your first color
-
+if(color === "red") {
     // 2. give the message for this color
-
+messageParagraph.innerHTML = `Are you feeling angry?`;
   // 3. check for the next color
-
+} else if(color === "green") {
     // 4. give the message for the next color
-    
+messageParagraph.innerHTML = `Are you feeling peaceful?`;
+} else {
   // 5. otherwise, ask for another color
+messageParagraph.innerHTML = `Try another color.`;
 
 }
 
@@ -134,12 +143,36 @@ function partFourA () {
 
 // Try it!
 // Can you implement Rock Paper Scissors?
+
 // How many options are there?
 // NOTE: If you miss some of the options, that's OK. 
 // Try to catch as many as you can.
 function partFourB () {
   alert("Try it!");
-
+let playerOne, playerTwo;
+playerOne = prompt("Player One, choose rock, paper, or scissors.");
+playerTwo = prompt("Player Two, choose rock, paper, or scissors.");
+if(playerOne === "rock" && playerTwo === "paper"){
+messageParagraph.innerHTML = "Player Two wins!";
+}
+else if (playerOne === "scissors" && playerTwo === "rock") {
+messageParagraph.innerHTML = "Player Two wins!";
+}
+else if (playerOne === "rock" && playerTwo === "scissors") {
+messageParagraph.innerHTML = "Player One wins!";
+}
+else if (playerOne === "scissors" && playerTwo === "paper") {
+messageParagraph.innerHTML = "Player One wins!";
+}
+else if (playerOne === "paper" && playerTwo === "rock") {
+messageParagraph.innerHTML = "Player One wins!";
+}
+else if (playerOne === "paper" && playerTwo === "scissors") {
+messageParagraph.innerHTML = "Player Two wins!";
+}
+else {
+messageParagraph.innerHTML = "It's a tie!";
+}
 }
 
 // BONUS: Try and "prove" that you have all the options covered in the Rock Paper Scissors game. How many are there exactly? How are you certain of that? Write your answer as a comment.
